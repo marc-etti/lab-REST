@@ -56,7 +56,6 @@
 1. Utilizza `curl` per effettuare una richiesta PUT a `https://jsonplaceholder.typicode.com/posts/1` con il seguente corpo JSON:
     ```json
     {
-    "id": 1,
     "title": "foo",
     "body": "bar",
     "userId": 1
@@ -65,12 +64,27 @@
     ```bash
     curl -X PUT https://jsonplaceholder.typicode.com/posts/1 \
       -H "Content-Type: application/json" \
-      -d '{"id": 1, "title": "foo", "body": "bar", "userId": 1}'
+      -d '{"title": "foo", "body": "bar", "userId": 1}'
     ```
     - Nota: la risorsa non viene effettivamente aggiornata, ma la risposta simula un successo
 2. Utilizza Insomnia per effettuare la stessa richiesta PUT e visualizza il titolo aggiornato del post.
 
-### Esercizio 4: DELETE
+### Esercizio 4: PATCH
+1. Utilizza `curl` per effettuare una richiesta PATCH a `https://jsonplaceholder.typicode.com/posts/1` con il seguente corpo JSON:
+    ```json
+    {
+    "title": "foo updated"
+    }
+    ```
+    ```bash
+    curl -X PATCH https://jsonplaceholder.typicode.com/posts/1 \
+      -H "Content-Type: application/json" \
+      -d '{"title": "foo updated"}' 
+    ```
+    - Nota: la risorsa non viene effettivamente aggiornata, ma la risposta simula un successo
+2. Utilizza Insomnia per effettuare la stessa richiesta PATCH e visualizza il titolo aggiornato del post.
+
+### Esercizio 5: DELETE
 1. Utilizza `curl` per effettuare una richiesta DELETE a `https://jsonplaceholder.typicode.com/posts/1`.
     ```bash
     curl -X DELETE https://jsonplaceholder.typicode.com/posts/1
@@ -78,20 +92,20 @@
     - Nota: la risorsa  non viene effettivamente eliminata, ma la risposta simula un successo
 2. Utilizza Insomnia per effettuare la stessa richiesta DELETE
 
-### Esercizio 5: Query Parameters
+### Esercizio 6: Query Parameters
 1. Utilizza `curl` per effettuare una richiesta GET a `https://jsonplaceholder.typicode.com/` per ottenere tutti i post dell'utente con ID 1.
     ```bash
     curl https://jsonplaceholder.typicode.com/posts?userId=1
     ```
 2. Utilizza Insomnia per effettuare la stessa richiesta GET e visualizza i post dell'utente con ID 1.
-### Esercizio 6: Errore 404
+### Esercizio 7: Errore 404
 1. Utilizza `curl` per effettuare una richiesta GET a `https://jsonplaceholder.typicode.com/posts/9999` (un post che non esiste) e visualizza la risposta.
     ```bash
     curl https://jsonplaceholder.typicode.com/posts/9999
     ```
 2. Utilizza Insomnia per effettuare la stessa richiesta GET e verifica che venga restituito un errore 404.
 
-### Esercizio 7: Errori 400
+### Esercizio 8: Errori 400
 1. Utilizza `curl` per effettuare una richiesta POST a `https://jsonplaceholder.typicode.com/posts` con un corpo JSON mancante di campi obbligatori (ad esempio solo `{"title": "foo"}`).
     ```bash
     curl -i -X POST https://jsonplaceholder.typicode.com/posts \
@@ -102,7 +116,7 @@
     - Nota: la risorsa non viene effettivamente creata, ma la risposta simula un errore 400 a causa dei campi mancanti
 2. Utilizza Insomnia per effettuare la stessa richiesta POST e verifica che venga restituito un errore 400.
 
-### Esercizio 7: Autenticazione
+### Esercizio 9: Autenticazione
 1. Utilizza `curl` per effettuare una richiesta GET a `https://httpbin.org/basic-auth/user/passwd` con autenticazione di base (username: `user`, password: `passwd`).
     ```bash
     curl -i -u user:passwd https://httpbin.org/basic-auth/user/passwd

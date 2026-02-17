@@ -1,1 +1,10 @@
+# Soluzioni
+soluzioni/
 soluzioni.md
+
+# php & lavarel
+vendor/
+composer.lock
+.env
+.env.local
+.env.*.local
