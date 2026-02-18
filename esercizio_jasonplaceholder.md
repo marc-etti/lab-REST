@@ -161,7 +161,7 @@
         }
     },
     ```
-    Recuppera tutti gli utenti residenti a Gwenborough.
+    Recupera tutti gli utenti residenti a Gwenborough.
 
 ### Esercizi POST
 1. Utilizza `curl` per effettuare una richiesta POST a `https://jsonplaceholder.typicode.com/posts` con un corpo JSON che rappresenta un nuovo post.

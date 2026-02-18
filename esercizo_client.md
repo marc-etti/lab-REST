@@ -4,6 +4,11 @@
 ## Indicazioni
 Una volta creato il server REST, e basandosi sul codice del client `client_jasonplaceholder.php`, implementare un client PHP che interagisca con il server REST creato in Laravel.
 
+Comando per eseguire il client:
+```bash
+php client.php
+```
+
 ## Richieste da implementare:
 
 - `GET https://localhost:8000/posts/1`
