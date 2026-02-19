@@ -72,44 +72,67 @@
     php artisan migrate
     ```
 
-4. Creare il `controller` per i posts e implementare i metodi: `index`, `show`, `store`, `update` e `destroy`
+4. Creare il `controller` per i posts
 
     ```bash
     php artisan make:controller PostController --api
     ```
 
-5. Modificare il file `app/Http/Controllers/PostController.php` implementando i metodi per gestire le operazioni CRUD sui posts
+5. Modificare il file `app/Http/Controllers/PostController.php` implementando i metodi: `index`, `show`, `store`, `update` e `destroy` per gestire le operazioni CRUD sui posts
 
     ```php
     public function index()
     {
         // Corrisponde alla rotta GET /api/posts, restituisce tutti i posts
+        return response()->json(Post::all());
     }
 
     public function store(Request $request)
     {
         // Corrisponde alla rotta POST /api/posts, crea un nuovo post con i dati ricevuti nella richiesta
+        $post = Post::create($request->all());
+        return response()->json($post, 201);
     }
 
     public function show(string $id)
     {
         // Corrisponde alla rotta GET /api/posts/{id}, restituisce il post con l'id specificato
+        $post = Post::find($id);
+        if ($post) {
+            return response()->json($post);
+        } else {
+            return response()->json(['message' => 'Post not found'], 404);
+        }
     }
 
     public function update(Request $request, string $id)
     {
         // Corrisponde alla rotta PUT /api/posts/{id}, aggiorna il post con l'id specificato utilizzando i dati ricevuti nella richiesta
+        $post = Post::find($id);
+        if ($post) {
+            $post->update($request->all());
+            return response()->json($post);
+        } else {
+            return response()->json(['message' => 'Post not found'], 404);
+        }
     }
 
     public function destroy(string $id)
     {
         // Corrisponde alla rotta DELETE /api/posts/{id}, elimina il post con l'id specificato
+        $post = Post::find($id);
+        if ($post) {
+            $post->delete();
+            return response()->json(['message' => 'Post deleted']);
+        } else {
+            return response()->json(['message' => 'Post not found'], 404);
+        }
     }
     ```
 
     
 
-5. Creare il file `routes/api.php` e aggiungere le rotte per i posts
+6. Creare il file `routes/api.php` e aggiungere le rotte per i posts
 
     ```php
     <?php
@@ -120,7 +143,7 @@
     Route::apiResource('posts', PostController::class);
     ```
 
-6. Aggiungere la stringa `api: __DIR__.'/../routes/api.php',` al file `bootstrap/app.php` all'interno della funzione `configure` per caricare le rotte API
+7. Aggiungere la stringa `api: __DIR__.'/../routes/api.php',` al file `bootstrap/app.php` all'interno della funzione `configure` per caricare le rotte API
 
     ```php
     return Application::configure(basePath: dirname(__DIR__))
@@ -133,7 +156,7 @@
     ...
     ```
 
-7. Effettuare il seed del database con alcuni posts (opzioale ma utile per testare l'API)
+8. Effettuare il seed del database con alcuni posts (opzioale ma utile per testare l'API)
     Creare un seeder per i posts:
     ```bash
     php artisan make:seeder PostSeeder
@@ -161,7 +184,7 @@
     php artisan db:seed --class=PostSeeder
     ```
 
-8. Test dell' API:
+9. Test dell' API:
 
     - GET all posts: `GET http://localhost:8000/api/posts`
     - GET a single post: `GET http://localhost:8000/api/posts/{id}`
