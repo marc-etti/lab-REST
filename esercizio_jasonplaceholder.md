@@ -1,18 +1,33 @@
 # Laboratorio REST: Curl, Insomnia & JsonPlaceholder
 [Torna al README iniziale](README.md)
+
 ## Requisiti
-- `curl`: strumento da linea di comando per effettuare richieste HTTP
+
+- `curl`: strumento da linea di comando per effettuare richieste HTTP.
+  
+  Documentazione: [https://curl.se/docs/](https://curl.se/docs/)
+  
   Se non è installato, puoi installarlo con:
+
   ```bash
   sudo apt install curl
   ```
-- `jq`: strumento da linea di comando per elaborare JSON
+
+- `jq`: strumento da linea di comando per elaborare JSON.
+
+  Documentazione: [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)
+  
   Se non è installato, puoi installarlo con:
+
   ```bash
   sudo apt install jq
   ```
+
 - `Insomnia`: strumento grafico per testare API REST
+
   Se non è installato, puoi scaricarlo da [qui](https://insomnia.rest/download).
+
+  Documentazione: [https://docs.insomnia.rest/](https://docs.insomnia.rest/)
 
 ## Esercizi svolti
 ### Esercizio 1: GET
