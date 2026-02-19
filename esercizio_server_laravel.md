@@ -5,7 +5,7 @@
 - `PHP`: linguaggio di programmazione necessario per eseguire Laravel
     Se non è installato, puoi installarlo con:
     ```bash
-    sudo apt install php
+    sudo apt install php php-xml php-mysql sqlite3
     ```
 - `Composer`: strumento per la gestione delle dipendenze in PHP
     Se non è installato, puoi installarlo con:
@@ -78,10 +78,45 @@
     php artisan make:controller PostController --api
     ```
 
+5. Modificare il file `app/Http/Controllers/PostController.php` implementando i metodi per gestire le operazioni CRUD sui posts
+
+    ```php
+    public function index()
+    {
+        // Corrisponde alla rotta GET /api/posts, restituisce tutti i posts
+    }
+
+    public function store(Request $request)
+    {
+        // Corrisponde alla rotta POST /api/posts, crea un nuovo post con i dati ricevuti nella richiesta
+    }
+
+    public function show(string $id)
+    {
+        // Corrisponde alla rotta GET /api/posts/{id}, restituisce il post con l'id specificato
+    }
+
+    public function update(Request $request, string $id)
+    {
+        // Corrisponde alla rotta PUT /api/posts/{id}, aggiorna il post con l'id specificato utilizzando i dati ricevuti nella richiesta
+    }
+
+    public function destroy(string $id)
+    {
+        // Corrisponde alla rotta DELETE /api/posts/{id}, elimina il post con l'id specificato
+    }
+    ```
+
+    
+
 5. Creare il file `routes/api.php` e aggiungere le rotte per i posts
 
     ```php
+    <?php
+
+    use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\PostController;
+
     Route::apiResource('posts', PostController::class);
     ```
 
