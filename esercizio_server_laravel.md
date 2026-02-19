@@ -92,6 +92,7 @@
     {
         // Corrisponde alla rotta POST /api/posts, crea un nuovo post con i dati ricevuti nella richiesta
         // TODO
+    }
     ```
     ```php
     public function show(string $id)
