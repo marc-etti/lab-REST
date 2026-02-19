@@ -84,53 +84,34 @@
     public function index()
     {
         // Corrisponde alla rotta GET /api/posts, restituisce tutti i posts
-        return response()->json(Post::all());
+        // TODO
     }
     ```
     ```php
     public function store(Request $request)
     {
         // Corrisponde alla rotta POST /api/posts, crea un nuovo post con i dati ricevuti nella richiesta
-        $post = Post::create($request->all());
-        return response()->json($post, 201);
-    }
+        // TODO
     ```
     ```php
     public function show(string $id)
     {
         // Corrisponde alla rotta GET /api/posts/{id}, restituisce il post con l'id specificato
-        $post = Post::find($id);
-        if ($post) {
-            return response()->json($post);
-        } else {
-            return response()->json(['message' => 'Post not found'], 404);
-        }
+        // TODO
     }
     ```
     ```php
     public function update(Request $request, string $id)
     {
         // Corrisponde alla rotta PUT /api/posts/{id}, aggiorna il post con l'id specificato utilizzando i dati ricevuti nella richiesta
-        $post = Post::find($id);
-        if ($post) {
-            $post->update($request->all());
-            return response()->json($post);
-        } else {
-            return response()->json(['message' => 'Post not found'], 404);
-        }
+        // TODO
     }
     ```
     ```php
     public function destroy(string $id)
     {
         // Corrisponde alla rotta DELETE /api/posts/{id}, elimina il post con l'id specificato
-        $post = Post::find($id);
-        if ($post) {
-            $post->delete();
-            return response()->json(['message' => 'Post deleted']);
-        } else {
-            return response()->json(['message' => 'Post not found'], 404);
-        }
+        // TODO
     }
     ```
 
