@@ -1,6 +1,8 @@
 # Soluzioni
 soluzioni/
-soluzioni.md
+soluzioni/server/
+soluzioni/client.php
+soluzioni/soluzioni_es_jsonplaceholder.md
 
 # php & lavarel
 vendor/
