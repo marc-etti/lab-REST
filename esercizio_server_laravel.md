@@ -5,7 +5,7 @@
 - `PHP`: linguaggio di programmazione necessario per eseguire Laravel
     Se non è installato, puoi installarlo con:
     ```bash
-    sudo apt install php php-xml php-mysql sqlite3
+    sudo apt install php php-xml php-sqlite3 sqlite3
     ```
 - `Composer`: strumento per la gestione delle dipendenze in PHP
     Se non è installato, puoi installarlo con:
